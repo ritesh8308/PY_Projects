@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Web-Based Scientific Calculator</h1>
+        <form method="POST">
+            <input type="text" name="expression" placeholder="Enter expression e.g. sin(pi/2) + log(e)" value="{{ expression }}" required>
+            <button type="submit">Calculate</button>
+        </form>
+        {% if result is not none %}
+            <div class="result">Result: {{ result }}</div>
+        {% elif error %}
+            <div class="error">Error: {{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
